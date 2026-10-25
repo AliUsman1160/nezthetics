@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f7f2ec;
+  --white: #ffffff;
+  --ink: #382c29;
+  --ink-soft: #786b63;
+  --champagne: #b99a78;
+  /* Darker champagne for small text on light backgrounds (AA contrast). */
+  --champagne-deep: #8a6c4a;
+  --beige: #e9ded3;
+  --line: #e7ded4;
+  --espresso: #302521;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-champagne: var(--champagne);
+  --color-champagne-deep: var(--champagne-deep);
+  --color-beige: var(--beige);
+  --color-line: var(--line);
+  --color-espresso: var(--espresso);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  color: inherit;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--champagne);
+  color: var(--espresso);
+}
+
+:focus-visible {
+  outline: 2px solid var(--champagne-deep);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--champagne);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
